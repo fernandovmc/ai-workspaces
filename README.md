@@ -2,6 +2,27 @@
 
 Uma plataforma para interação com IA em espaços de trabalho organizados, permitindo chats contextuais e pessoais com base em documentos.
 
+## Screenshots
+
+### Homepage
+![Homepage da aplicação](/caminho/para/screenshot-homepage.png)
+*Página inicial da aplicação com opções de navegação*
+
+### Listagem de Workspaces
+![Listagem de Workspaces - Visão 1](/caminho/para/screenshot-workspaces-1.png)
+*Visualização principal da listagem de workspaces do usuário*
+
+![Listagem de Workspaces - Visão 2](/caminho/para/screenshot-workspaces-2.png)
+*Visualização alternativa com detalhes dos workspaces*
+
+### Interface de Chat
+![Interface de Chat](/caminho/para/screenshot-chatbot.png)
+*Interface de conversação com o assistente de IA*
+
+### Upload de Documentos
+![Upload de Documentos](/caminho/para/screenshot-documentos.png)
+*Tela de importação e gerenciamento de documentos*
+
 ## Requisitos
 
 - Docker e Docker Compose
@@ -13,7 +34,7 @@ Uma plataforma para interação com IA em espaços de trabalho organizados, perm
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/ai-workspaces.git
+git clone https://github.com/fernandovmc/ai-workspaces.git
 cd ai-workspaces
 ```
 

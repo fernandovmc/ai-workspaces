@@ -22,6 +22,27 @@ cp .env.example .env
 2. Configure as variáveis no arquivo `.env`:
 - `NEXT_PUBLIC_API_URL`: URL da API backend (padrão: http://localhost:5000)
 
+## Screenshots
+
+### Homepage
+![Homepage da aplicação](/caminho/para/screenshot-homepage.png)
+*Página inicial da aplicação com opções de navegação*
+
+### Listagem de Workspaces
+![Listagem de Workspaces - Visão 1](/caminho/para/screenshot-workspaces-1.png)
+*Visualização principal da listagem de workspaces do usuário*
+
+![Listagem de Workspaces - Visão 2](/caminho/para/screenshot-workspaces-2.png)
+*Visualização alternativa com detalhes dos workspaces*
+
+### Interface de Chat
+![Interface de Chat](/caminho/para/screenshot-chatbot.png)
+*Interface de conversação com o assistente de IA*
+
+### Upload de Documentos
+![Upload de Documentos](/caminho/para/screenshot-documentos.png)
+*Tela de importação e gerenciamento de documentos*
+
 ## Instalação
 
 ```bash
