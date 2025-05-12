@@ -9,7 +9,7 @@ Uma plataforma para interação com IA em espaços de trabalho organizados, perm
 *Página inicial da aplicação com opções de navegação*
 
 ### Listagem de Workspaces
-![Listagem de Workspaces - Visão 1](https://imgur.com/bLkP2sp)
+![https://imgur.com/bLkP2sp]
 *Visualização principal da listagem de workspaces do usuário*
 
 ![Listagem de Workspaces - Visão 2](https://imgur.com/TwqK6aU)
