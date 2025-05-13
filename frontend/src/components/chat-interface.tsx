@@ -214,7 +214,7 @@ export default function ChatInterface({
               <div
                 className={`rounded-lg px-4 py-2 max-w-[80%] ${
                   message.role === "user"
-                    ? "bg-primary text-primary-foreground"
+                    ? "bg-primary text-primary-foreground font-bold"
                     : "bg-card border"
                 }`}
               >

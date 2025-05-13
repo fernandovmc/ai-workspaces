@@ -14,7 +14,7 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { Trash2, FolderOpen, Loader2, PlusCircle, X } from "lucide-react";
+import { Trash2, FolderOpen, Loader2, PlusCircle, X, ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
 
 type Workspace = {
@@ -26,7 +26,9 @@ export default function WorkspacesPage() {
   const [workspaces, setWorkspaces] = useState<Workspace[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isDeletingId, setIsDeletingId] = useState<string | null>(null);
-  const [workspaceToDelete, setWorkspaceToDelete] = useState<string | null>(null);
+  const [workspaceToDelete, setWorkspaceToDelete] = useState<string | null>(
+    null
+  );
   const [error, setError] = useState<string | null>(null);
   const [user, setUser] = useState<{ email: string } | null>(null);
   const [newWorkspaceName, setNewWorkspaceName] = useState("");
@@ -134,8 +136,15 @@ export default function WorkspacesPage() {
   }
 
   return (
-    <div className="container mx-auto p-6">
-      <div className="mb-10 flex justify-between items-center mt-20">
+    <div className="container mx-auto pt-20 p-6">
+      <div className="mb-4 mt-4">
+        <Link href="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+          <ArrowLeft className="h-4 w-4" />
+          <span>Voltar para página inicial</span>
+        </Link>
+      </div>
+      
+      <div className="mb-8 flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold mb-2">Meus Workspaces</h1>
           {user && (
@@ -166,7 +175,9 @@ export default function WorkspacesPage() {
                   </Button>
                 </div>
                 <div>
-                  <Label htmlFor="workspaceName" className="mb-3">Nome do Workspace</Label>
+                  <Label htmlFor="workspaceName" className="mb-3">
+                    Nome do Workspace
+                  </Label>
                   <Input
                     id="workspaceName"
                     value={newWorkspaceName}
@@ -229,24 +240,28 @@ export default function WorkspacesPage() {
       {workspaces.length === 0 && !error ? (
         <div className="text-center p-10 bg-card rounded-lg border border-dashed border-border shadow-sm">
           <FolderOpen className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
-          <p className="text-muted-foreground text-xl">Você ainda não tem workspaces</p>
+          <p className="text-muted-foreground text-xl">
+            Você ainda não tem workspaces
+          </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {workspaces.map((workspace) => (
             <Card
               key={workspace.id}
-              className="hover:shadow-lg transition-shadow overflow-hidden group"
+              className="hover:shadow-lg transition-all hover:translate-y-[-5px] overflow-hidden group border-2"
             >
-              <Link href={`/workspaces/${workspace.id}`}>
-                <CardHeader className="pb-2">
+              <Link href={`/workspaces/${workspace.id}`} className="block h-full">
+                <CardHeader className="pb-3">
                   <CardTitle className="flex justify-between items-center">
-                    <span className="truncate font-extrabold">
-                      {workspace.name.toUpperCase()}
+                    <span className="truncate font-extrabold text-lg">
+                        {workspace.name.toUpperCase()}
                     </span>
-                    <Popover 
+                    <Popover
                       open={workspaceToDelete === workspace.id}
-                      onOpenChange={(open) => !open && setWorkspaceToDelete(null)}
+                      onOpenChange={(open) =>
+                        !open && setWorkspaceToDelete(null)
+                      }
                     >
                       <PopoverTrigger asChild>
                         <Button
@@ -271,11 +286,12 @@ export default function WorkspacesPage() {
                         <div className="space-y-3">
                           <h4 className="font-medium">Confirmar exclusão</h4>
                           <p className="text-sm text-muted-foreground">
-                            Tem certeza que deseja excluir o workspace <strong>{workspace.name}</strong>?
+                            Tem certeza que deseja excluir o workspace{" "}
+                            <strong>{workspace.name}</strong>?
                           </p>
                           <div className="flex justify-end gap-2">
-                            <Button 
-                              variant="outline" 
+                            <Button
+                              variant="outline"
                               size="sm"
                               onClick={(e) => {
                                 e.preventDefault();
@@ -285,8 +301,8 @@ export default function WorkspacesPage() {
                             >
                               Cancelar
                             </Button>
-                            <Button 
-                              variant="destructive" 
+                            <Button
+                              variant="destructive"
                               size="sm"
                               onClick={(e) => {
                                 e.preventDefault();
@@ -302,8 +318,10 @@ export default function WorkspacesPage() {
                     </Popover>
                   </CardTitle>
                 </CardHeader>
-                <CardFooter className="pt-2 pb-2 text-xs text-muted-foreground">
-                  ID: {workspace.id}
+                <CardFooter className="pt-4 pb-4 flex justify-between items-center">
+                  <div className="text-xs text-muted-foreground">
+                    ID: {workspace.id}
+                  </div>
                 </CardFooter>
               </Link>
             </Card>

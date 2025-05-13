@@ -38,9 +38,9 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="flex-1">
         <div className="container mx-auto px-4 py-16 md:py-24 flex flex-col items-center justify-center text-center min-h-screen">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <strong className="text-primary">Workspaces</strong> Inteligentes
-            com IA
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight flex items-center gap-2">
+            <BrainCircuit className="h-16 w-16" />
+            AI <strong className="text-primary">Workspaces</strong>
           </h1>
           <p className="mt-6 text-xl text-muted-foreground max-w-3xl">
             Crie workspaces inteligentes para seus documentos e utilize IA
@@ -67,11 +67,11 @@ export default function HomePage() {
                   className="h-11"
                 />
                 <Button className="h-11" size="lg">
-                  <Link 
-                    href="/register" 
+                  <Link
+                    href="/register"
                     className="flex items-center gap-2"
                     onClick={() => {
-                      if(email) {
+                      if (email) {
                         localStorage.setItem("prefilledEmail", email);
                       }
                     }}
@@ -81,6 +81,19 @@ export default function HomePage() {
                 </Button>
               </>
             )}
+          </div>
+
+          <div className="mt-8">
+            <Button variant="outline" size="sm" className="text-xs" asChild>
+              <Link
+                href="https://github.com/fernandovmc"
+                target="_blank"
+                className="flex items-center gap-2"
+              >
+                <Github className="h-4 w-4" />
+                Created by fernandovmc
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -193,7 +206,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Rodapé */}
       <footer className="border-t py-8">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2">
@@ -202,13 +214,16 @@ export default function HomePage() {
           </div>
 
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link
-              href="https://github.com/fernandovmc"
-              target="_blank"
-              className="text-sm hover:text-foreground bg-white/10 rounded-md px-3 py-1.5 flex items-center gap-2"
-            >
-              Contato
-            </Link>
+            <Button variant="outline" size="sm" className="text-xs" asChild>
+              <Link
+                href="https://github.com/fernandovmc"
+                target="_blank"
+                className="flex items-center gap-2"
+              >
+                <Github className="h-4 w-4" />
+                Created by fernandovmc
+              </Link>
+            </Button>
           </div>
         </div>
       </footer>

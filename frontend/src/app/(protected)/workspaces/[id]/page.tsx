@@ -39,16 +39,16 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
   }, [workspaceId]);
 
   return (
-    <div className="flex flex-col min-h-screen w-full bg-background mt-15">
+    <div className="flex flex-col w-full bg-background pt-12">
       <div className="flex flex-col lg:flex-row gap-8 px-4 w-full max-w-[1800px] mx-auto my-8 h-[calc(100vh-120px)]">
         {/* Sidebar: Navegação e Modos */}
         <aside className="w-full lg:w-1/4 flex flex-col gap-6 max-w-xs">
           <Link
             href="/workspaces"
-            className="flex items-center hover:underline gap-2"
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
-            Voltar para Workspaces
+            <span>Voltar para Meus Workspaces</span>
           </Link>
 
           <div className="border rounded-lg p-4">

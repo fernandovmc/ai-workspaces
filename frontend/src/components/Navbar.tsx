@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useRouter, usePathname } from "next/navigation";
+import { BrainCircuit } from "lucide-react";
 
 export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -29,14 +30,15 @@ export default function Navbar() {
         "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-background shadow-sm"
       )}
     >
-      <Link href={isLoggedIn ? "/#" : "/#"} className="text-2xl font-bold">
+      <Link href={isLoggedIn ? "/#" : "/#"} className="text-2xl font-bold flex items-center gap-2">
+        <BrainCircuit className="h-5 w-5" />
         AI <strong className="text-primary">Workspaces</strong>
       </Link>
       <div className="flex gap-4">
         {isLoggedIn ? (
           <>
             <Link href="/workspaces" passHref>
-              <Button variant="secondary" asChild>
+              <Button variant="outline" asChild>
                 <span>Workspaces</span>
               </Button>
             </Link>
