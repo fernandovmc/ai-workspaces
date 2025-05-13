@@ -5,22 +5,22 @@ Uma plataforma para interação com IA em espaços de trabalho organizados, perm
 ## Screenshots
 
 ### Homepage
-![Homepage da aplicação](/caminho/para/screenshot-homepage.png)
+![Homepage da aplicação](https://i.imgur.com/G5f3SZC.jpg)  
 *Página inicial da aplicação com opções de navegação*
 
 ### Listagem de Workspaces
-![Listagem de Workspaces - Visão 1](/caminho/para/screenshot-workspaces-1.png)
+![Listagem de Workspaces - Visão 1](https://i.imgur.com/8jmVaex.jpg)  
 *Visualização principal da listagem de workspaces do usuário*
 
-![Listagem de Workspaces - Visão 2](/caminho/para/screenshot-workspaces-2.png)
-*Visualização alternativa com detalhes dos workspaces*
+![Listagem de Workspaces - Visão 2](https://i.imgur.com/OGzjRK4.jpg)  
+*Visualização alternativa sem workspaces*
 
 ### Interface de Chat
-![Interface de Chat](/caminho/para/screenshot-chatbot.png)
+![Interface de Chat](https://i.imgur.com/mcOUQXo.jpg)  
 *Interface de conversação com o assistente de IA*
 
 ### Upload de Documentos
-![Upload de Documentos](/caminho/para/screenshot-documentos.png)
+![Upload de Documentos](https://i.imgur.com/uHsLZx5.jpg)  
 *Tela de importação e gerenciamento de documentos*
 
 ## Requisitos
