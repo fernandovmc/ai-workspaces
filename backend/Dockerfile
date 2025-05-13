@@ -6,7 +6,8 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
-RUN npx tsc -p tsconfig.build.json
+RUN npm install -g typescript
+RUN tsc -p tsconfig.build.json
 
 FROM node:22-alpine AS runner
 

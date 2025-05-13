@@ -193,36 +193,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="text-primary-foreground py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Pronto para potencializar seus documentos com IA?
-          </h2>
-          <p className="mb-8 max-w-2xl mx-auto text-lg opacity-90">
-            Crie uma conta gratuita e comece a explorar o poder da IA
-            contextualizada com seus próprios documentos.
-          </p>
-
-          {isLoggedIn ? (
-            <></>
-          ) : (
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/register">
-                <Button size="lg" variant="outline">
-                  Criar Conta Gratuita
-                </Button>
-              </Link>
-              <Link href="/login">
-                <Button size="lg" variant="default">
-                  Fazer Login
-                </Button>
-              </Link>
-            </div>
-          )}
-        </div>
-      </section>
-
       {/* Rodapé */}
       <footer className="border-t py-8">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
