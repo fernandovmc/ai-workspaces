@@ -1,22 +1,23 @@
-FROM node:22-alpine
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
 COPY package*.json ./
-# Instalar todas dependências, incluindo as de desenvolvimento
-RUN npm install
+RUN npm ci
 
 COPY . .
+RUN npm run build
 
-RUN if [ "$NODE_ENV" = "production" ]; then \
-      npm run build && \
-      npm prune --production; \
-    fi
+FROM node:22-alpine AS runner
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci --only=production
+
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/uploads ./uploads
 
 EXPOSE 5000
 
-CMD if [ "$NODE_ENV" = "production" ]; then \
-      npm run start:prod; \
-    else \
-      npm run start:dev; \
-    fi
+CMD ["npm", "run", "start:prod"]
