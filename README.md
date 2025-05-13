@@ -80,78 +80,15 @@ Execute o seguinte comando na pasta raiz do projeto para construir e iniciar tod
 docker-compose up --build
 ```
 
-Para executar em segundo plano:
-```bash
-docker-compose up -d
-```
-
 A aplicação estará disponível em:
 - Frontend: http://localhost:3000
 - Backend: http://localhost:5000
 - Postgres: localhost:5432
 
-### Parando a aplicação
-
-```bash
-docker-compose down
-```
-
-Para remover os volumes também (isso apagará os dados do banco):
-```bash
-docker-compose down -v
-```
-
-### Reconstruindo após alterações
-
-Se você fizer alterações no código e precisar reconstruir os contêineres:
-
-```bash
-docker-compose up --build
-```
-
 ## Estrutura do projeto
 
 - `/backend`: API NestJS com autenticação, gestão de usuários, workspaces e integração com a OpenAI
 - `/frontend`: Aplicação Next.js com interface de usuário para interação com a API
-
-## Logs e depuração
-
-Para visualizar logs de um serviço específico:
-
-```bash
-docker-compose logs backend
-docker-compose logs frontend
-docker-compose logs postgres
-```
-
-Para acompanhar logs em tempo real:
-
-```bash
-docker-compose logs -f backend
-```
-
-## Solução de problemas comuns
-
-### Erro de conexão com banco de dados
-Se encontrar problemas de conexão com o PostgreSQL, verifique se o banco de dados foi inicializado corretamente:
-
-```bash
-docker-compose ps postgres
-```
-
-Se necessário, reinicie apenas o banco de dados:
-
-```bash
-docker-compose restart postgres
-```
-
-### Problema com permissões ou arquivos de volume
-Ao executar em sistemas Windows, podem ocorrer problemas com permissões. Tente:
-
-```bash
-docker-compose down -v
-docker-compose up --build
-```
 
 ### Erros relacionados a variáveis de ambiente
 Se a aplicação apresentar erros relacionados a variáveis de ambiente faltantes:
