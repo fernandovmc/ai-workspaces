@@ -3,6 +3,7 @@ FROM node:22-alpine
 WORKDIR /app
 
 COPY package*.json ./
+# Instalar todas dependências, incluindo as de desenvolvimento
 RUN npm install
 
 COPY . .
