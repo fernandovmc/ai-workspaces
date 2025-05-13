@@ -20,6 +20,8 @@ import { ChatMessage } from './chat/entities/chat-message.entity';
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
+      // Suporte para URL do Railway ou variáveis individuais
+      url: process.env.DATABASE_URL,
       host: process.env.DB_HOST || 'localhost',
       port: parseInt(process.env.DB_PORT || '5432'),
       username: process.env.DB_USERNAME || 'postgres',
@@ -27,6 +29,9 @@ import { ChatMessage } from './chat/entities/chat-message.entity';
       database: process.env.DB_DATABASE || 'ai_workspaces',
       entities: [User, Workspace, Document, ChatMessage],
       synchronize: process.env.NODE_ENV !== 'production',
+      ssl: process.env.NODE_ENV === 'production' ? {
+        rejectUnauthorized: false
+      } : false
     }),
     AuthModule,
     UserModule,

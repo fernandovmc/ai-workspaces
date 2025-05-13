@@ -9,7 +9,12 @@ async function bootstrap() {
 
   // Enable detailed CORS configuration
   app.enableCors({
-    origin: true, // Allow all origins or specify your frontend URL
+    // Use VERCEL_URL environment variable or frontend URL from environment
+    // In development, allow localhost origins
+    origin: process.env.ALLOWED_ORIGINS || 
+           process.env.VERCEL_URL ? 
+           [`https://${process.env.VERCEL_URL}`, 'http://localhost:3000'] : 
+           true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     allowedHeaders: 'Content-Type, Accept, Authorization',

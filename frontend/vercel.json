@@ -1,0 +1,20 @@
+{
+  "buildCommand": "npm run build",
+  "framework": "nextjs",
+  "outputDirectory": ".next",
+  "regions": ["gru1"],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,HEAD,PUT,PATCH,POST,DELETE" },
+        { "key": "Access-Control-Allow-Headers", "value": "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Authorization" }
+      ]
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://seu-backend-no-railway.up.railway.app"
+  }
+}

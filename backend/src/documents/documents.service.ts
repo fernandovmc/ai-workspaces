@@ -108,9 +108,16 @@ export class DocumentsService {
     try {
       const document = await this.getDocumentById(documentId);
 
-      // Remove physical file
+      // Remove physical file if it exists
+      // No Railway, os arquivos podem ser temporários e podem ser excluídos automaticamente
       if (fs.existsSync(document.filePath)) {
-        fs.unlinkSync(document.filePath);
+        try {
+          fs.unlinkSync(document.filePath);
+        } catch (fileError) {
+          this.logger.warn(
+            `Unable to delete file at ${document.filePath}. It may have been already removed or the path is inaccessible.`,
+          );
+        }
       }
 
       // Remove from database

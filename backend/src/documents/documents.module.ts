@@ -4,7 +4,7 @@ import { Document } from './document.entity';
 import { DocumentsService } from './documents.service';
 import { DocumentsController } from './documents.controller';
 import { MulterModule } from '@nestjs/platform-express';
-import multer, { diskStorage } from 'multer';
+import { diskStorage } from 'multer';
 import { extname } from 'path';
 import * as fs from 'fs';
 import { Workspace } from '../workspaces/workspace.entity';
@@ -20,7 +20,12 @@ import { Request } from 'express';
           _file: Express.Multer.File,
           cb: (error: Error | null, destination: string) => void,
         ) => {
-          const uploadPath = './uploads';
+          // Use tmp directory for Railway compatibility
+          // Railway provides /tmp as a writable directory
+          const uploadPath = process.env.NODE_ENV === 'production' 
+            ? '/tmp/uploads' 
+            : './uploads';
+
           // Create directory if it doesn't exist
           if (!fs.existsSync(uploadPath)) {
             fs.mkdirSync(uploadPath, { recursive: true });
