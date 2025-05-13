@@ -3,11 +3,10 @@ FROM node:22-alpine AS builder
 WORKDIR /app
 
 COPY package*.json ./
-# Instalar o NestJS CLI globalmente e depois as dependências
-RUN npm install -g @nestjs/cli && npm ci
+RUN npm ci
 
 COPY . .
-RUN npm run build
+RUN npx tsc -p tsconfig.build.json
 
 FROM node:22-alpine AS runner
 
@@ -17,10 +16,9 @@ COPY package*.json ./
 RUN npm ci --only=production
 
 COPY --from=builder /app/dist ./dist
-# Certifique-se de que o diretório uploads existe, mesmo que esteja vazio
 RUN mkdir -p ./uploads
 COPY --from=builder /app/uploads ./uploads
 
 EXPOSE 5000
 
-CMD ["npm", "run", "start:prod"]
+CMD ["node", "dist/main"]
