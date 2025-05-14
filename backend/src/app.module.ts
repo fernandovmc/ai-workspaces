@@ -17,7 +17,9 @@ import { ChatMessage } from './chat/entities/chat-message.entity';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       url: process.env.DATABASE_URL,
@@ -27,6 +29,11 @@ import { ChatMessage } from './chat/entities/chat-message.entity';
         rejectUnauthorized: false,
       },
       logging: ['error'],
+      // Opções extras para garantir a conexão
+      extra: {
+        connectionTimeoutMillis: 5000,
+        query_timeout: 10000,
+      },
     }),
     AuthModule,
     UserModule,

@@ -13,7 +13,7 @@ async function bootstrap() {
     // In development, allow localhost origins
     origin:
       process.env.ALLOWED_ORIGINS || process.env.VERCEL_URL
-        ? [`https://${process.env.VERCEL_URL}`, 'http://localhost:3000']
+        ? [process.env.VERCEL_URL, 'http://localhost:3000']
         : true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
