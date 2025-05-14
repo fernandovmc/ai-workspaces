@@ -24,7 +24,7 @@ import { ChatMessage } from './chat/entities/chat-message.entity';
       type: 'postgres',
       url: process.env.DATABASE_URL,
       entities: [User, Workspace, Document, ChatMessage],
-      synchronize: false,
+      synchronize: true,
       ssl: {
         rejectUnauthorized: false,
       },
