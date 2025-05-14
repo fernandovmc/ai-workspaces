@@ -91,7 +91,7 @@ export default function HomePage() {
                 className="flex items-center gap-2"
               >
                 <Github className="h-4 w-4" />
-                Created by fernandovmc
+                Developed by fernandovmc
               </Link>
             </Button>
           </div>
@@ -221,7 +221,7 @@ export default function HomePage() {
                 className="flex items-center gap-2"
               >
                 <Github className="h-4 w-4" />
-                Created by fernandovmc
+                Developed by fernandovmc
               </Link>
             </Button>
           </div>
