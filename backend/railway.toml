@@ -6,7 +6,7 @@ buildCommand = "npm run build"
 startCommand = "npm run start:prod"
 healthcheckPath = "/"
 healthcheckTimeout = 100
-restartPolicyType = "on-failure"
+restartPolicy = "on-failure"
 
 [phases.setup]
 nixPkgs = ["nodejs", "postgresql"]
