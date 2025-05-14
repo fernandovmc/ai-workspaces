@@ -1,9 +1,9 @@
 [build]
 builder = "nixpacks"
-buildCommand = "npm run build"
+buildCommand = "cd backend && npm run build"
 
 [deploy]
-startCommand = "npm run start:prod"
+startCommand = "cd backend && npm run start:prod"
 healthcheckPath = "/"
 healthcheckTimeout = 100
 restartPolicy = "on-failure"
@@ -11,7 +11,6 @@ restartPolicy = "on-failure"
 [phases.setup]
 nixPkgs = ["nodejs", "postgresql"]
 
-# Configuração para conexão com o banco de dados PostgreSQL
+# Variável de ambiente para conexão com o banco de dados PostgreSQL
 [env]
-DATABASE_URL = "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${RAILWAY_PRIVATE_DOMAIN}:5432/${POSTGRES_DB}"
-DATABASE_PUBLIC_URL = "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${RAILWAY_TCP_PROXY_DOMAIN}:${RAILWAY_TCP_PROXY_PORT}/${POSTGRES_DB}"
+DATABASE_URL = "${{ Postgres.DATABASE_URL }}"
