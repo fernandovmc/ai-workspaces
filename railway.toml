@@ -10,3 +10,8 @@ restartPolicy = "on-failure"
 
 [phases.setup]
 nixPkgs = ["nodejs", "postgresql"]
+
+# Configuração para conexão com o banco de dados PostgreSQL
+[env]
+DATABASE_URL = "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${RAILWAY_PRIVATE_DOMAIN}:5432/${POSTGRES_DB}"
+DATABASE_PUBLIC_URL = "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${RAILWAY_TCP_PROXY_DOMAIN}:${RAILWAY_TCP_PROXY_PORT}/${POSTGRES_DB}"
