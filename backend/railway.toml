@@ -11,6 +11,6 @@ restartPolicy = "on-failure"
 [phases.setup]
 nixPkgs = ["nodejs", "postgresql"]
 
-# Variável de ambiente para conexão com o banco de dados PostgreSQL
+# Vincula diretamente ao PostgreSQL do Railway
 [env]
 DATABASE_URL = "${{ Postgres.DATABASE_URL }}"

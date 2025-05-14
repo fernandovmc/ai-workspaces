@@ -22,10 +22,11 @@ import { ChatMessage } from './chat/entities/chat-message.entity';
       type: 'postgres',
       url: process.env.DATABASE_URL,
       entities: [User, Workspace, Document, ChatMessage],
-      synchronize: process.env.NODE_ENV !== 'production',
+      synchronize: false,
       ssl: {
         rejectUnauthorized: false,
       },
+      logging: ['error'],
     }),
     AuthModule,
     UserModule,
