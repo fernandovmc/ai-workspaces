@@ -29,9 +29,12 @@ import { ChatMessage } from './chat/entities/chat-message.entity';
       database: process.env.DB_DATABASE || 'ai_workspaces',
       entities: [User, Workspace, Document, ChatMessage],
       synchronize: process.env.NODE_ENV !== 'production',
-      ssl: process.env.NODE_ENV === 'production' ? {
-        rejectUnauthorized: false
-      } : false
+      ssl:
+        process.env.NODE_ENV === 'production'
+          ? {
+              rejectUnauthorized: false,
+            }
+          : false,
     }),
     AuthModule,
     UserModule,

@@ -22,9 +22,10 @@ import { Request } from 'express';
         ) => {
           // Use tmp directory for Railway compatibility
           // Railway provides /tmp as a writable directory
-          const uploadPath = process.env.NODE_ENV === 'production' 
-            ? '/tmp/uploads' 
-            : './uploads';
+          const uploadPath =
+            process.env.NODE_ENV === 'production'
+              ? '/tmp/uploads'
+              : './uploads';
 
           // Create directory if it doesn't exist
           if (!fs.existsSync(uploadPath)) {
