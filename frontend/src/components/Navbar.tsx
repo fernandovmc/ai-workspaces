@@ -53,14 +53,14 @@ export default function Navbar() {
                   <span>Workspaces</span>
                 </Button>
               </Link>
-              <Button variant="destructive" onClick={handleLogout}>
+              <Button variant="outline" onClick={handleLogout}>
                 Sair
               </Button>
             </>
           ) : (
             <>
               <Link href="/login" passHref>
-                <Button variant="default" asChild>
+                <Button variant="outline" asChild>
                   <span>Entrar</span>
                 </Button>
               </Link>
