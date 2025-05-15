@@ -36,11 +36,14 @@ export default function Navbar() {
           "max-w-5xl w-full flex items-center justify-between px-6 py-3 bg-secondary/50 backdrop-blur-sm shadow-sm rounded-full"
         )}
       >
-        <Link href={isLoggedIn ? "/" : "/"} className="text-2xl font-bold flex items-center gap-1">
+        <Link
+          href={isLoggedIn ? "/" : "/"}
+          className="text-2xl font-bold flex items-center gap-1"
+        >
           <BrainCircuit className="h-5 w-5" />
           AI <strong className="text-primary">Workspaces</strong>
         </Link>
-        
+
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-4">
           {isLoggedIn ? (
@@ -69,42 +72,67 @@ export default function Navbar() {
             </>
           )}
         </div>
-        
+
         {/* Mobile Navigation Button */}
         <div className="md:hidden">
-          <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Menu">
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleMenu}
+            aria-label="Menu"
+          >
+            {isMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5 bg-secondary/50 backdrop-blur-sm" />
+            )}
           </Button>
         </div>
       </nav>
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="fixed top-[72px] left-4 right-4 bg-background z-50 p-4 rounded-lg shadow-lg md:hidden">
+        <div className="fixed top-[72px] left-4 right-4 bg-secondary/50 backdrop-blur-sm z-50 p-4 rounded-xl shadow-lg md:hidden">
           <div className="flex flex-col gap-2">
             {isLoggedIn ? (
               <>
                 <Link href="/workspaces" passHref onClick={toggleMenu}>
-                  <Button variant="outline" className="w-full justify-start" asChild>
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start"
+                    asChild
+                  >
                     <span>Workspaces</span>
                   </Button>
                 </Link>
-                <Button variant="destructive" className="w-full justify-start" onClick={() => {
-                  handleLogout();
-                  toggleMenu();
-                }}>
+                <Button
+                  variant="destructive"
+                  className="w-full justify-start"
+                  onClick={() => {
+                    handleLogout();
+                    toggleMenu();
+                  }}
+                >
                   Logout
                 </Button>
               </>
             ) : (
               <>
                 <Link href="/login" passHref onClick={toggleMenu}>
-                  <Button variant="default" className="w-full justify-start" asChild>
+                  <Button
+                    variant="default"
+                    className="w-full justify-start"
+                    asChild
+                  >
                     <span>Login</span>
                   </Button>
                 </Link>
                 <Link href="/register" passHref onClick={toggleMenu}>
-                  <Button variant="outline" className="w-full justify-start" asChild>
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start"
+                    asChild
+                  >
                     <span>Register</span>
                   </Button>
                 </Link>

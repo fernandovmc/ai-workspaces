@@ -136,32 +136,32 @@ export default function WorkspacesPage() {
   }
 
   return (
-    <div className="container mx-auto pt-20 p-6">
-      <div className="mb-4 mt-4">
+    <div className="container mx-auto pt-20 px-4 sm:px-6 lg:px-8">
+      <div className="mb-4 mt-2 sm:mt-4">
         <Link href="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
           <ArrowLeft className="h-4 w-4" />
           <span>Voltar para página inicial</span>
         </Link>
       </div>
       
-      <div className="mb-8 flex justify-between items-center">
+      <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold mb-2">Meus Workspaces</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">Meus Workspaces</h1>
           {user && (
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs sm:text-sm text-muted-foreground">
               Logado como: {user.email}
             </p>
           )}
         </div>
-        <div className="flex gap-4">
+        <div className="w-full sm:w-auto">
           <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
             <PopoverTrigger asChild>
-              <Button size="lg" className="flex items-center gap-2">
+              <Button size="lg" className="flex items-center gap-2 w-full sm:w-auto">
                 <PlusCircle className="h-5 w-5" />
                 Novo Workspace
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-80 p-4">
+            <PopoverContent className="w-[calc(100vw-2rem)] sm:w-80 p-4">
               <div className="flex flex-col gap-4">
                 <div className="flex justify-between items-center">
                   <h3 className="text-lg font-medium">Criar workspace</h3>
@@ -238,14 +238,14 @@ export default function WorkspacesPage() {
       )}
 
       {workspaces.length === 0 && !error ? (
-        <div className="text-center p-10 bg-card rounded-lg border border-dashed border-border shadow-sm">
-          <FolderOpen className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
-          <p className="text-muted-foreground text-xl">
+        <div className="text-center p-6 sm:p-10 bg-card rounded-lg border border-dashed border-border shadow-sm">
+          <FolderOpen className="h-12 w-12 sm:h-16 sm:w-16 mx-auto text-muted-foreground mb-3 sm:mb-4" />
+          <p className="text-muted-foreground text-lg sm:text-xl">
             Você ainda não tem workspaces
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {workspaces.map((workspace) => (
             <Card
               key={workspace.id}
@@ -267,7 +267,7 @@ export default function WorkspacesPage() {
                         <Button
                           variant="ghost"
                           size="sm"
-                          className="opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100"
+                          className="transition-opacity focus:opacity-100"
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();

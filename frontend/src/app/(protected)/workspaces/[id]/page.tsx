@@ -39,7 +39,7 @@ export default function WorkspacePage({ params }: { params: { id: string } }) {
   }, [workspaceId]);
 
   return (
-    <div className="flex flex-col w-full bg-background pt-12">
+    <div className="flex flex-col w-full bg-background pt-16">
       <div className="flex flex-col lg:flex-row gap-8 px-4 w-full max-w-[1800px] mx-auto my-8 h-[calc(100vh-120px)]">
         {/* Sidebar: Navegação e Modos */}
         <aside className="w-full lg:w-1/4 flex flex-col gap-6 max-w-xs">
