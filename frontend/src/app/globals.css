@@ -45,8 +45,8 @@
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.141 0.005 285.823);
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.041 0.005 285.823);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
@@ -76,6 +76,38 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.723 0.219 149.579);
+}
+
+/* Add transition to the HTML element for theme switching */
+html {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+}
+
+/* Add transition to common elements that need color transitions */
+body,
+.bg-background,
+.bg-card,
+.bg-popover,
+.bg-primary,
+.bg-secondary,
+.bg-muted,
+.bg-accent,
+.border,
+.text-foreground,
+.text-primary,
+.text-secondary,
+.text-muted,
+.text-accent,
+button,
+input,
+textarea,
+select,
+.card {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
 }
 
 .dark {
@@ -111,7 +143,6 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.527 0.154 150.069);
 }
-
 
 @layer base {
   * {

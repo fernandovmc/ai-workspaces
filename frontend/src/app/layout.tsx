@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "next-themes";
+import { ToggleMode } from "@/components/ToggleMode";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,11 +31,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
           <Navbar />
-          <main>
-            {children}
-          </main>
+          <main>{children}</main>
+          <ToggleMode />
           <Toaster />
         </ThemeProvider>
       </body>
