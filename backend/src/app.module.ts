@@ -22,12 +22,24 @@ import { ChatMessage } from './chat/entities/chat-message.entity';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      url: process.env.DATABASE_URL,
+      ...(process.env.NODE_ENV === 'production'
+        ? {
+            // Production configuration with DATABASE_URL
+            url: process.env.DATABASE_URL,
+            ssl: {
+              rejectUnauthorized: false,
+            },
+          }
+        : {
+            // Local development configuration with individual parameters
+            host: process.env.DB_HOST || 'localhost',
+            port: parseInt(process.env.DB_PORT || '5432', 10),
+            username: process.env.DB_USERNAME || 'postgres',
+            password: process.env.DB_PASSWORD || 'postgres',
+            database: process.env.DB_DATABASE || 'ai_workspaces',
+          }),
       entities: [User, Workspace, Document, ChatMessage],
       synchronize: true,
-      ssl: {
-        rejectUnauthorized: false,
-      },
       logging: ['error'],
       // Opções extras para garantir a conexão
       extra: {
