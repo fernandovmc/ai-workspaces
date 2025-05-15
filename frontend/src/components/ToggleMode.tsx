@@ -34,19 +34,19 @@ export function ToggleMode() {
             onClick={() => setTheme("light")}
             className="cursor-pointer"
           >
-            Light
+            Claro
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => setTheme("dark")}
             className="cursor-pointer"
           >
-            Dark
+            Escuro
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => setTheme("system")}
             className="cursor-pointer"
           >
-            System
+            Sistema
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
