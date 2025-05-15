@@ -33,7 +33,7 @@ export default function Navbar() {
     <div className="w-full flex justify-center px-4 fixed top-0 left-0 right-0 z-50 mt-4">
       <nav
         className={cn(
-          "max-w-5xl w-full flex items-center justify-between px-6 py-3 bg-secondary/50 backdrop-blur-sm shadow-sm rounded-full"
+          "max-w-6xl w-full flex items-center justify-between px-6 py-3 bg-secondary/50 backdrop-blur-sm shadow-sm rounded-full"
         )}
       >
         <Link

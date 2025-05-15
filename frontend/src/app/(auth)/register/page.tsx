@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { api } from "@/lib/api";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { Eye, EyeClosed, EyeOff, Send } from "lucide-react";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -13,6 +14,8 @@ export default function RegisterPage() {
   const [error, setError] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
   const [email, setEmail] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -78,6 +81,9 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="w-full max-w-md p-8 space-y-8 border rounded-lg">
+        <div className="flex justify-center mb-4">
+          <Send className="h-12 w-12 text-primary" />
+        </div>
         <h1 className="text-2xl font-bold text-center">Crie sua conta</h1>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-4">
@@ -89,18 +95,44 @@ export default function RegisterPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <Input
-              name="password"
-              placeholder="Senha"
-              type="password"
-              required
-            />
-            <Input
-              name="confirmPassword"
-              placeholder="Confirme sua senha"
-              type="password"
-              required
-            />
+            <div className="relative">
+              <Input
+                name="password"
+                placeholder="Senha"
+                type={showPassword ? "text" : "password"}
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              >
+                {showPassword ? (
+                  <Eye className="h-5 w-5" />
+                ) : (
+                  <EyeOff className="h-5 w-5" />
+                )}
+              </button>
+            </div>
+            <div className="relative">
+              <Input
+                name="confirmPassword"
+                placeholder="Confirme sua senha"
+                type={showConfirmPassword ? "text" : "password"}
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              >
+                {showConfirmPassword ? (
+                  <Eye className="h-5 w-5" />
+                ) : (
+                  <EyeOff className="h-5 w-5" />
+                )}
+              </button>
+            </div>
             {passwordError && (
               <div className="p-3 bg-red-100 border border-red-300 text-red-800 rounded text-sm">
                 {passwordError}
